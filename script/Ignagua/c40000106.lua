@@ -20,16 +20,17 @@ function s.initial_effect(c)
 	e2:SetOperation(s.lvop)
 	c:RegisterEffect(e2)
 	--search Still a WORK IN PROGRESS
-	local e3=Effect.CreateEffect(c)
-	e3:SetDescription(aux.Stringid(id,0))
-	e3:SetCategory(CATEGORY_TOHAND+CATEGORY_SEARCH)
-	e3:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_TRIGGER_O)
-	e3:SetCode(EVENT_TO_GRAVE)
-	e3:SetProperty(EFFECT_FLAG_DAMAGE_STEP+EFFECT_FLAG_DELAY)
-	e3:SetCondition(s.thcon)
-	e3:SetTarget(s.thtg)
-	e3:SetOperation(s.thop)
-	c:RegisterEffect(e3)
+	--local e3=Effect.CreateEffect(c)
+	--e3:SetDescription(aux.Stringid(id,0))
+	--e3:SetCategory(CATEGORY_TOHAND+CATEGORY_SEARCH)
+	--e3:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_TRIGGER_O)
+	--e3:SetCode(EVENT_TO_GRAVE)
+	--e3:SetProperty(EFFECT_FLAG_DAMAGE_STEP+EFFECT_FLAG_DELAY)
+	--e3:SetCondition(s.thcon)
+	--e3:SetTarget(s.thtg)
+	--e3:SetOperation(s.thop)
+	--c:RegisterEffect(e3)
+	--
 
 
 end
