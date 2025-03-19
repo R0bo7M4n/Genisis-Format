@@ -67,6 +67,8 @@ function s.activate(e,tp,eg,ep,ev,re,r,rp)
 	e4:SetReset(RESET_PHASE+PHASE_END)
 	e4:SetLabelObject(e2)
 	Duel.RegisterEffect(e4,tp)
+
+
 end
 
 function s.ritfilter(c,tp)

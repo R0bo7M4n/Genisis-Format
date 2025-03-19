@@ -58,7 +58,7 @@ function s.tgfilter(c,e,tp)
 	return c:IsSetCard(0x247) and c:IsAttribute(ATTRIBUTE_WATER) or c:IsAttribute(ATTRIBUTE_FIRE) and Duel.IsExistingMatchingCard(s.thfilter2,tp,LOCATION_GRAVE,0,1,nil,c:GetAttribute(),e,tp,c)
 end
 function s.tgfilter2(c,att)
-	return not c:IsAttribute(att) and c:IsAbleToRemove() and c:IsMonster()
+	return not c:IsAttribute(att) and c:IsAbleToRemove()
 end
 function s.tgtg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(s.tgfilter,tp,LOCATION_DECK,0,1,nil,e,tp) end
