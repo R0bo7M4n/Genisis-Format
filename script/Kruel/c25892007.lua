@@ -20,7 +20,7 @@ function s.initial_effect(c)
 	--Send this card from hand to GY to send a "Kruel" monster to the GY
 	local e2=Effect.CreateEffect(c)
 	e2:SetDescription(aux.Stringid(id,1))
-	e2:SetCategory(CATEGORY_TOGRAVE)
+	e2:SetCategory(CATEGORY_TOGRAVE+CATEGORY_RECOVER)
 	e2:SetType(EFFECT_TYPE_QUICK_O)
 	e2:SetCode(EVENT_FREE_CHAIN)
 	e2:SetRange(LOCATION_HAND)
@@ -86,13 +86,13 @@ end
 function s.tgtg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(s.tgfilter,tp,LOCATION_DECK,0,1,nil) end
 	Duel.SetOperationInfo(0,CATEGORY_TOGRAVE,nil,1,tp,LOCATION_DECK)
+	Duel.SetOperationInfo(0,CATEGORY_RECOVER,nil,0,tp,200)
 end
 function s.tgop(e,tp,eg,ep,ev,re,r,rp)
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_TOGRAVE)
 	local g=Duel.SelectMatchingCard(tp,s.tgfilter,tp,LOCATION_DECK,0,1,1,nil)
-	if #g>0 then
-		Duel.SendtoGrave(g,REASON_EFFECT)
+	if #g>0 and Duel.SendtoGrave(g,REASON_EFFECT)>0 then
+		Duel.BreakEffect()
+		Duel.Recover(tp,200,REASON_EFFECT)
 	end
 end
-
-
