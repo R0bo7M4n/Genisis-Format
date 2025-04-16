@@ -31,17 +31,10 @@ function s.initial_effect(c)
 
 
 end
-function s.costfilter(c,tp)
-	return c:IsFaceup()
-end
 function s.cost(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then
-		local res=Duel.CheckReleaseGroupCost(tp,s.costfilter,1,false,nil,nil,tp)
-		if res then e:SetLabel(1) end
-		return res
-	end
-	local rc=Duel.SelectReleaseGroupCost(tp,s.costfilter,1,1,false,nil,nil,tp):GetFirst()
-	Duel.Release(rc,REASON_COST)
+	if chk==0 then return Duel.CheckReleaseGroupCost(tp,nil,1,true,nil,nil) end
+	local g=Duel.SelectReleaseGroupCost(tp,nil,1,1,true,nil,nil)
+	Duel.Release(g,REASON_COST)
 end
 function s.spfilter(c,e,tp)
 	return c:IsSetCard(0x88a) and c:IsLevelBelow(4) and c:IsCanBeSpecialSummoned(e,0,tp,false,false)
